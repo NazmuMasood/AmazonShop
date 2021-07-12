@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Ecom</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+	<link rel="icon" href="{% static 'images/favicon.ico' %}">
+
+	<script type="text/javascript">
+		var user = 'Guest'
+	</script>
+</head>
+<body>
+
+	{% comment %} <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	  <a class="navbar-brand" href="{% url 'store' %}">AmazonShop</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item active">
+	        <a class="nav-link" href="{% url 'store' %}">Store <span class="sr-only">(current)</span></a>
+	      </li>
+	 
+	    </ul>
+	    <div class="form-inline my-2 my-lg-0">
+	     	<a href="#"class="btn btn-warning">Login</a> {% endcomment %}
+	     	
+	     	{% comment %} <a href="{% url 'cart' %}"> {% endcomment %}
+			{% comment %} <a href="#">
+	    		<img  id="cart-icon" src="{% static 'images/cart.png' %}">
+	    	</a>
+	    	<p id="cart-total">0</p>
+
+	    </div>
+	  </div>
+	</nav> {% endcomment %}
+
+	<nav class="navbar navbar-expand-md navbar-light bg-light" style="font-size:21px;">
+		<a href="{% url 'store' %}" class="navbar-brand" style="font-size:25px;  font-family: 'Sofia', sans-serif;">
+			AmazonShop
+		</a>
+		<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+			<div class="navbar-nav">
+				<a href="{% url 'store' %}" 
+					class="nav-item nav-link {% if currentPage == 'store' %}active{% endif %}">
+					Store
+				</a>
+				{% comment %} <a href="#" class="nav-item nav-link">Profile</a> {% endcomment %}
+				
+				{% comment %} <div class="nav-item dropdown">
+					<a href="#" class="nav-item nav-link active dropdown-toggle" data-toggle="dropdown">Categories</a>
+					<div class="dropdown-menu">
+						{% for category in categories %}
+						<a href="#" class="dropdown-item">{{category}}</a>
+						{% endfor %}
+					</div>
+				</div>  {% endcomment %}
+
+				<div class="nav-item dropdown">
+					<div class="nav-link dropdown-toggle {% if currentPage == 'categories' %}active{% endif %}" 
+						data-bs-toggle="dropdown" >Categories
+					</div>
+					<ul class="dropdown-menu">
+						{% for category in categories %}
+						<li>
+							<a class="dropdown-item" href="{% url 'categoryByKey' key=category%}">
+								{{category}}
+							</a>
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>  
+
+			{% comment %} <div class="collapse navbar-collapse" id="main_nav">
+				<ul class="navbar-nav">
+					<li class="nav-item active"> <a class="nav-link" href="#">Store </a> </li>
+					<li class="nav-item"><a class="nav-link" href="#"> About </a></li>
+					<li class="nav-item"><a class="nav-link" href="#"> Services </a></li>
+					<li class="nav-item dropdown">
+						<a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">  Categories  </a>
+						<ul class="dropdown-menu">
+							{% for category in categories %}
+							<li><a class="dropdown-item" href="#"> {{category}}</a></li>
+							{% endfor %}
+						</ul>
+					</li>
+				</ul>
+			</div> {% endcomment %}
+
+			<form class="form-inline" action="{% url 'search' %}" method="GET" id="search_form" onsubmit="return validateForm()">
+				<div class="input-group">                    
+					<input type="text" class="form-control" value="{% if search_key %}{{search_key}}{% endif %}" placeholder="Search products..." name="search_key">
+					<div class="input-group-append">
+						<button type="submit" form="search_form" value="Submit" class="btn btn-secondary" >
+							<i class="fa fa-search"></i>
+						</button>
+					</div>
+				</div>
+			</form>
+			<div class="navbar-nav">
+				{% comment %} <a href="#" class="nav-item nav-link">Login</a> {% endcomment %}
+	     	
+				{% comment %} <a href="{% url 'cart' %}"> {% endcomment %}
+				<div style="display:flex; margin-right:15px;">
+					<a href="#">
+						<img  id="cart-icon" alt="[Cart]" src="{% static 'images/cart.png' %}" height="32">
+					</a>
+					<p id="cart-total">0</p>
+				</div>
+				<a href="#"class="btn btn-warning">Login</a>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+            <br>
+            {% block content %}
+
+
+            {% endblock content %}
+	</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+	<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

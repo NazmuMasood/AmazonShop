@@ -1,0 +1,122 @@
+[
+    {
+        "model": "store.Product",
+        "pk": 1,
+        "fields": {
+            "name": "Logitech G213 Prodigy Gaming Keyboard, LIGHTSYNC RGB Backlit Keys, Spill-Resistant, Customizable Keys, Dedicated Multi-Media Keys – Black",
+            "price": 66.72,
+            "img_url": "https://images-na.ssl-images-amazon.com/images/I/61I52zZ-7qL._AC_SX679_.jpg",
+            "url": "https://www.amazon.com/Logitech-G213-Prodigy-Gaming-Keyboard/dp/B07QGHK6Q8/",
+            "category": "Computer & Accessories",
+            "sub_category": "Gaming Keyboards"
+        }
+    },
+    {
+        "model": "store.Product",
+        "pk": 2,
+        "fields": {
+            "name": "Hanes Men's Humor Graphic T-Shirt",
+            "price": 5.00,
+            "img_url": "https://images-na.ssl-images-amazon.com/images/I/71SbWZONd6S._AC_UX522_.jpg",
+            "url": "https://www.amazon.com/-/es/Hanes-Americana-Collection-estampada-Departamento/dp/B01EKB675G/",
+            "category": "Clothing, Shoes & Jewelry",
+            "sub_category": "Shirts"
+        }
+    },
+    {
+        "model": "store.Product",
+        "pk": 3,
+        "fields": {
+            "name": "Dove Body Wash Pump, Deep Moisture, 34 Fl Oz (Pack of 1)",
+            "price": 8.94,
+            "img_url": "https://images-na.ssl-images-amazon.com/images/I/71NbfFpRvzL._AC_SL1500_.jpg",
+            "url": "https://www.amazon.com/Dove-Body-Wash-Pump-Moisture/dp/B00MEDOY2G/",
+            "category": "Beauty & Personal Care",
+            "sub_category": "Body Washes"
+        }
+    },
+    {
+        "model": "store.Product",
+        "pk": 4,
+        "fields": {
+            "name": "Schwinn Koen Boys Bike for Toddlers and Kids, 18-Inch Wheels, Blue",
+            "price": 255.90,
+            "img_url": "https://images-na.ssl-images-amazon.com/images/I/91EV4GdFC8L._AC_SL1500_.jpg",
+            "url": "https://www.amazon.com/Schwinn-Koen-Boys-SmartStart-Wheels/dp/B07K3G27JF/",
+            "category": "Sports & Outdoors",
+            "sub_category": "Bikes"
+        }
+    },
+    {
+        "model": "store.Product",
+        "pk": 5,
+        "fields": {
+            "name": "Lay's Potato Chip Variety Pack, 1 Ounce (Pack of 40)",
+            "price": 25.20,
+            "img_url": "https://images-na.ssl-images-amazon.com/images/I/91TKOKJe2zL._SL1500_.jpg",
+            "url": "https://www.amazon.com/Lays-Potato-Chips-Variety-Count/dp/B07179XBP9/",
+            "category": "Grocery & Gourmet Food",
+            "sub_category": "Chips & Crisps"
+        }
+    },
+    {
+        "model": "store.Product",
+        "pk": 6,
+        "fields": {
+            "name": "Lenovo Chromebook Flex 5 13\" Laptop, FHD (1920 x 1080) Touch Display, Intel Core i3-10110U Processor, 4GB DDR4 Onboard RAM, 64GB eMMC, Intel Integrated Graphics, Chrome OS, 82B80006UX, Graphite Grey",
+            "price": 329.99,
+            "img_url": "https://images-na.ssl-images-amazon.com/images/I/61qIQqN3blS._AC_SL1100_.jpg",
+            "url": "https://www.amazon.com/Lenovo-Chromebook-i3-10110U-Integrated-82B80006UX/dp/B086383HC7/",
+            "category": "Computers & Accessories",
+            "sub_category": "Laptops"
+        }
+    },
+    {
+        "model": "store.Product",
+        "pk": 7,
+        "fields": {
+            "name": "Gotrax KX5 Kick Scooter, 3 Adjustable Heights and 5\" Flashing Wheels Kids Scooter, Lightweight Aluminum Alloy Scooter for Kids Boys Girls Age of 4-9",
+            "price": 29.99,
+            "img_url": "https://images-na.ssl-images-amazon.com/images/I/61gdRFZOs1L._AC_SL1500_.jpg",
+            "url": "https://www.amazon.com/Gotrax-Kick-Scooter-Toddlers-Silver/dp/B08BXG3W5Z/",
+            "category": "Sports & Outdoors",
+            "sub_category": "Scooters"
+        }
+    },
+    {
+        "model": "store.Product",
+        "pk": 8,
+        "fields": {
+            "name": "Jenga Classic Game",
+            "price": 12.97,
+            "img_url": "https://images-na.ssl-images-amazon.com/images/I/81OAWwX3djL._AC_SL1500_.jpg",
+            "url": "https://www.amazon.com/Jenga-A2120EU4-Classic-Game/dp/B00ABA0ZOA/",
+            "category": "Toys & Games",
+            "sub_category": "Stacking Games"
+        }
+    },
+    {
+        "model": "store.Product",
+        "pk": 9,
+        "fields": {
+            "name": "Fluffy Stuffs | Super Soft Furry Stuffed Animal Storage Bean Bag Chair Cover for Kids | Premium Plush Fur | Canvas Handle | Make Bedroom Clutter Comfortable and Fun for Children | Machine Washable",
+            "price": 69.99,
+            "img_url": "https://images-na.ssl-images-amazon.com/images/I/81UlAvOTBXL._AC_SL1500_.jpg",
+            "url": "https://www.amazon.com/Stuffed-Storage-Comfortable-Children-Washable/dp/B07V6HK22Y/",
+            "category": "Home & Kitchen",
+            "sub_category": "Furnitures"
+        }
+    },
+    {
+        "model": "store.Product",
+        "pk": 10,
+        "fields": {
+            "name": "Sony WH-1000XM4 Wireless Industry Leading Noise Canceling Overhead Headphones with Mic for Phone-Call and Alexa Voice Control, Black",
+            "price": 199.99,
+            "img_url": "https://images-na.ssl-images-amazon.com/images/I/71o8Q5XJS5L._AC_SL1500_.jpg",
+            "url": "https://www.amazon.com/Sony-WH-1000XM4-Canceling-Headphones-phone-call/dp/B0863TXGM3/",
+            "category": "Electronics",
+            "sub_category": "Headphones"
+        }
+    }
+]

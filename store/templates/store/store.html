@@ -1,0 +1,47 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+	<div class="row" >
+		<div style="padding-top:4px;padding-left:17px;margin-right:10px;"> Sort by: </div>
+		<div class="dropdown show">
+			<a class="btn btn-secondary btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				{{ sorting_by }}
+			</a>
+
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+				{% for sort_criteria in sort_criterias %}	
+				<a class="dropdown-item" href="#">{{ sort_criteria }}</a>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+
+	<div class="row" >
+		{% for product in products %}
+		<div class="col-lg-4">
+			<a href="{{product.url}}" target="_blank">
+				<div class="product-img-frame">
+					<img class="product-img" src="{{product.img_url}}">
+				</div>
+			</a>
+			<div class="box-element product">
+				<a href="{{product.url}}" target="_blank">
+					<h6 class="product-title-text">
+						<strong>{{product.name}}</strong>
+					</h6>
+				</a>
+				<hr>
+
+				<button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+
+				<a class="btn btn-outline-success" href="{{ product.url }}">View</a>
+				<h4 style="display: inline-block; float: right; color: green; font-family: 'Open Sans', sans-serif;">
+					<strong>${{product.price}}</strong>
+				</h4>
+
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+
+{% endblock content %}
