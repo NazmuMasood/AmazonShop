@@ -2,9 +2,10 @@
 function validateForm() {
     console.log('validating form');
     let x = document.forms["search_form"]["search_key"].value;
-    if (x == "") {
+    if (x.trim() == "") {
     //   alert("Please enter a search keyword");
-      return false;
+        return false;
+        // document.getElementsByClassName('search_key')[0].placeholder = 'Search products...';
     }
 }
 

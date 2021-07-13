@@ -11,5 +11,5 @@ urlpatterns = [
 
 	path('search', views.search, name='search'), 
 	path('search/<str:key>/sort-by/<str:sort_key>', views.searchSort, name="searchSort"),
-
+  
 ]

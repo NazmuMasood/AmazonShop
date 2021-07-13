@@ -8,12 +8,12 @@ import re
 def store(request):
     products = Product.objects.all()
     context = {'products':products}
-    
+     
     # Getting the unique categories' list
-    categoriesRaw = []
-    for product in products:
-        categoriesRaw.append(product.category)
-    categories = list(dict.fromkeys(categoriesRaw))
+    categoriesDict = Product.objects.order_by("category").values('category').distinct()
+    categories = []
+    for product in categoriesDict:
+        categories.append(product['category'])
     context['categories'] = categories
 
     context['currentPage'] = 'store'
@@ -41,10 +41,10 @@ def storeSort(request, sort_key):
     context = {'products':products}
 
     # Getting the unique categories' list
-    categoriesRaw = []
-    for product in products:
-        categoriesRaw.append(product.category)
-    categories = list(dict.fromkeys(categoriesRaw))
+    categoriesDict = Product.objects.order_by("category").values('category').distinct()
+    categories = []
+    for product in categoriesDict:
+        categories.append(product['category'])
     context['categories'] = categories
 
     context['currentPage'] = 'store'
@@ -64,12 +64,11 @@ def categoryByKey(request, key):
 
     context['currentPage'] = 'categories'
 
-    # Getting the unique categories' list
-    allProducts = Product.objects.all()
-    categoriesRaw = []
-    for product in allProducts:
-        categoriesRaw.append(product.category)
-    categories = list(dict.fromkeys(categoriesRaw))
+   # Getting the unique categories' list
+    categoriesDict = Product.objects.order_by("category").values('category').distinct()
+    categories = []
+    for product in categoriesDict:
+        categories.append(product['category'])
     context['categories'] = categories
     context['currentCategory'] = key
 
@@ -96,11 +95,10 @@ def categoryByKeySort(request, key, sort_key):
     context['currentPage'] = 'categories'
 
     # Getting the unique categories' list
-    allProducts = Product.objects.all()
-    categoriesRaw = []
-    for product in allProducts:
-        categoriesRaw.append(product.category)
-    categories = list(dict.fromkeys(categoriesRaw))
+    categoriesDict = Product.objects.order_by("category").values('category').distinct()
+    categories = []
+    for product in categoriesDict:
+        categories.append(product['category'])
     context['categories'] = categories
     context['currentCategory'] = key
 
@@ -115,7 +113,7 @@ def categoryByKeySort(request, key, sort_key):
 #------- /search endpoints
 def search(request):
     # search_key = request.POST.get("search_key", "null")
-    search_key = request.GET['search_key']
+    search_key = request.GET['search_key'].strip()
     print('search key: '+str(search_key))
 
     search_keys = re.split(r"[^A-Za-z']+", search_key)
@@ -137,11 +135,10 @@ def search(request):
     context['currentPage'] = 'search'
 
     # Getting the unique categories' list
-    allProducts = Product.objects.all()
-    categoriesRaw = []
-    for product in allProducts:
-        categoriesRaw.append(product.category)
-    categories = list(dict.fromkeys(categoriesRaw))
+    categoriesDict = Product.objects.order_by("category").values('category').distinct()
+    categories = []
+    for product in categoriesDict:
+        categories.append(product['category'])
     context['categories'] = categories
 
     # 'sorting dropdown menu' values
@@ -152,8 +149,9 @@ def search(request):
 
     return render(request, 'store/store.html', context)
 
+
 def searchSort(request, key, sort_key):
-    search_key = key
+    search_key = key.strip()
     print('search key: '+str(search_key))
 
     search_keys = re.split(r"[^A-Za-z']+", search_key)
@@ -180,11 +178,10 @@ def searchSort(request, key, sort_key):
     context['currentPage'] = 'search'
 
     # Getting the unique categories' list
-    allProducts = Product.objects.all()
-    categoriesRaw = []
-    for product in allProducts:
-        categoriesRaw.append(product.category)
-    categories = list(dict.fromkeys(categoriesRaw))
+    categoriesDict = Product.objects.order_by("category").values('category').distinct()
+    categories = []
+    for product in categoriesDict:
+        categories.append(product['category'])
     context['categories'] = categories
 
     # 'sorting dropdown menu' values
@@ -194,3 +191,5 @@ def searchSort(request, key, sort_key):
     context['sort_criterias'] = sort_criterias
 
     return render(request, 'store/store.html', context)
+
+ 
