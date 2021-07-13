@@ -106,6 +106,22 @@ h1,h2,h3,h4,h5,h6{
 	cursor: default;
 }
 
+.product-list-heading-row {
+	border-radius: 4px;
+	margin-bottom: 15px;
+
+	background-color: white;
+	box-shadow:hsl(0, 0%, 90%) 0 0 8px;
+}
+
+.product-list-title {
+	font-size: 21px; padding-top:4px;
+}
+
+.sort-by-title {
+	padding-top:4px;margin-right:10px; display:block;
+}
+
 /* my updates end */
 
 .product-title-text {

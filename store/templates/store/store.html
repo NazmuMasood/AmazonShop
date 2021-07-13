@@ -1,17 +1,41 @@
 {% extends 'store/main.html' %}
 {% load static %}
 {% block content %}
-	<div class="row" >
-		<div style="padding-top:4px;padding-left:17px;margin-right:10px;"> Sort by: </div>
-		<div class="dropdown show">
-			<a class="btn btn-secondary btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				{{ sorting_by }}
-			</a>
+	<div class="d-flex product-list-heading-row">
+		<div class="mr-auto p-2 product-list-title">
+			{% if currentPage == 'store' %}
+			<strong> - Featured Products - </strong>
+			{% endif %}
+			{% if currentPage == 'categories'%}
+			<strong> Product category - {{currentCategory}}</strong>
+			{% endif %}
+			{% if currentPage == 'search' %}
+			<strong> Search results - {{ products|length }} product(s) found</strong>
+			{% endif %}
+		</div>
+		<div  class="p-2" style="display : inline-flex;">
+			<div class="sort-by-title"> Sort by: </div>
+			<div class="dropdown show">
+				<a class="btn btn-secondary btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					{{ sorting_by }} </a>
 
-			<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-				{% for sort_criteria in sort_criterias %}	
-				<a class="dropdown-item" href="#">{{ sort_criteria }}</a>
-				{% endfor %}
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					{% if currentPage == 'store' %}
+						{% for sort_criteria in sort_criterias %}	 
+						<a class="dropdown-item" href="{% url 'storeSort' sort_criteria %}">{{ sort_criteria }}</a>
+						{% endfor %}
+					{% endif %}
+					{% if currentPage == 'categories'%}
+						{% for sort_criteria in sort_criterias %}	
+						<a class="dropdown-item" href="{% url 'categorySort' key=currentCategory sort_key=sort_criteria %}">{{ sort_criteria }}</a>
+						{% endfor %}
+					{% endif %}
+					{% if currentPage == 'search' %}
+						{% for sort_criteria in sort_criterias %}	
+						<a class="dropdown-item" href="{% url 'searchSort' key=search_key sort_key=sort_criteria %}">{{ sort_criteria }}</a>
+						{% endfor %}
+					{% endif %}
+				</div>
 			</div>
 		</div>
 	</div>
